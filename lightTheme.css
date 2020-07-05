@@ -1,5 +1,5 @@
 /*noinspection CssRedundantUnit*/
-@media screen and (max-width: 481px){
+@media screen and (max-device-width: 481px){
     .wrap {
         border: none;
     }
