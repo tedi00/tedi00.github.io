@@ -1,4 +1,10 @@
 /*noinspection CssRedundantUnit*/
+@media screen and (max-width: 481px){
+    .wrap {
+        border: none;
+    }
+}
+
 body {
     background-color: #292D3E;
     color: #A6ACCD;
@@ -131,8 +137,3 @@ li a:hover {
     border-bottom: 1px solid #515772;
 }
 
-@media screen and (max-width: 481px){
-    .wrap {
-        border: none;
-    }
-}

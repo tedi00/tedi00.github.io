@@ -1,4 +1,10 @@
 /*noinspection CssRedundantUnit*/
+@media screen and (max-width: 481px){
+    .wrap {
+        border: none;
+    }
+}
+
 body {
     background: #F0F0F0;
     transition: background .5s;
@@ -119,8 +125,3 @@ hr {
     height: auto;
 }
 
-@media screen and (max-width: 481px){
-    .wrap {
-        border: none;
-    }
-}
