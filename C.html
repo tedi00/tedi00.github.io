@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<!--suppress ES6ConvertVarToLetConst-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="All basic C concepts I could think up">
+    <meta name="author" content="ted">
+    <title>Wal's C lessons</title>
+    <link rel="stylesheet" type="text/css" href="lightTheme.css" id="theme1">
+    <link rel="stylesheet alternate" type="text/css" href="darkTheme.css" id="theme2">
+    <script>
+        function remove() {
+            var rm = document.getElementsByClassName("removable");
+            for (var i = rm.length - 1; i >= 0; i--) {
+                rm[i].remove();
+            }
+        }
+
+        function appendBr(id) {
+            var whilebr = document.createElement("br");
+            whilebr.className = "removable";
+            document.getElementById(id).appendChild(whilebr.cloneNode(true));
+        }
+
+        function appendWr(id, innertext) {
+            var wrap = document.createElement("span");
+            wrap.className = "wrap";
+            wrap.className += " removable";
+            wrap.innerHTML = innertext;
+            document.getElementById(id).appendChild(wrap);
+        }
+
+        var ch_ifElse = 0;
+
+        function correctIfElse(choice) {
+            if (choice === 0) {
+                document.getElementById("ifelse3").innerHTML = "{<b>int</b> newval = 0;}";
+                document.getElementById("ieButton").innerText = "break";
+                ch_ifElse = 1;
+            }
+            if (choice === 1) {
+                document.getElementById("ifelse3").innerHTML = saveIEdata;
+                document.getElementById("ieButton").innerText = "fix";
+                ch_ifElse = 0;
+            }
+        }
+
+        var ch_swCase = 0;
+
+        function correctSwitchCase(choice) {
+            if (choice === 0) {
+                document.getElementById("swc1").innerHTML = "<b>switch</b>(day)";
+                document.getElementById("swc2").innerHTML = "<b>case</b> 'Monday':";
+                document.getElementById("swc3").innerHTML = "<b>printf</b>('You chose Monday');";
+                document.getElementById("swc4").innerHTML = "<b>case</b> 'Tuesday':";
+                document.getElementById("swc5").innerHTML = "<b>printf</b>('You chose Tuesday');";
+                document.getElementById("swc6").innerHTML = "<b>printf</b>('This isn't a valid day');";
+                document.getElementById("swButton").innerText = "hide it";
+                ch_swCase = 1;
+            }
+            if (choice === 1) {
+                document.getElementById("swc1").innerHTML = saveSWdata1;
+                document.getElementById("swc2").innerHTML = saveSWdata2;
+                document.getElementById("swc3").innerHTML = saveSWdata3;
+                document.getElementById("swc4").innerHTML = saveSWdata4;
+                document.getElementById("swc5").innerHTML = saveSWdata5;
+                document.getElementById("swc6").innerHTML = saveSWdata6;
+                document.getElementById("swButton").innerText = "show it";
+                ch_swCase = 0;
+            }
+        }
+
+        var ch_for = 0;
+
+        function correctFor(choice) {
+            if (choice === 0) {
+                document.getElementById("loopfor1").innerHTML = "<b>for</b>(i=0; i<10; i++)";
+                document.getElementById("loopfor2").innerHTML = "{ <b>printf</b>('%d',i); }";
+                document.getElementById("forButton").innerText = "hide";
+                ch_for = 1;
+            }
+            if (choice === 1) {
+                document.getElementById("loopfor1").innerHTML = saveFordata1;
+                document.getElementById("loopfor2").innerHTML = saveFordata2;
+                document.getElementById("forButton").innerText = "show";
+                ch_for = 0;
+            }
+
+        }
+
+        var ch_while = 0;
+
+        function correctWhile(choice) {
+            if (choice === 0) {
+                var id = "while1";
+                document.getElementById("loopwhile1").innerHTML = "<b>while</b>(num<10)";
+                document.getElementById("loopwhile2").innerHTML = "{";
+                appendBr("while1");
+                appendBr("while1");
+                var text = "<b>printf</b>('%d',num);";
+                appendWr(id, text);
+                appendBr("while1");
+                appendBr("while1");
+                text = "num++;";
+                appendWr(id, text);
+                appendBr("while1");
+                appendBr("while1");
+                text = "}";
+                appendWr(id, text);
+                document.getElementById("whileButton").innerText = "hide";
+                ch_while = 1;
+            }
+            if (choice === 1) {
+                remove();
+                document.getElementById("loopwhile1").innerHTML = saveWHdata1;
+                document.getElementById("loopwhile2").innerHTML = saveWHdata2;
+                document.getElementById("whileButton").innerText = "show";
+                ch_while = 0;
+            }
+        }
+
+        var ch_doWhile = 0;
+
+        function correctDoWhile(choice) {
+            if (choice === 0) {
+                document.getElementById("loopdw1").innerHTML = "} while(a<=10);";
+                document.getElementById("loopdw2").innerHTML = "In this code, <a href=\"#dw1\"><b>a</b></a>" +
+                    " is smaller than 10, and <span class=\"wrap\">printf</span> is run 10 times, " +
+                    "before the condition is checked. The output is <span class=\"wrap\">1 2 3 4 5 6 7 8 9 10</span>.";
+                document.getElementById("doWhileButton").innerText = "another";
+                ch_doWhile = 1;
+            }
+            if (choice === 1) {
+                document.getElementById("loopdw1").innerHTML = saveDWhdata1;
+                document.getElementById("loopdw2").innerHTML = saveDWhdata2;
+                document.getElementById("doWhileButton").innerText = "one";
+                ch_doWhile = 0;
+            }
+        }
+
+        var theme = 1;
+
+        function switchTheme(n) {
+            var light = document.getElementById("theme1");
+            var dark = document.getElementById("theme2");
+            var bt = document.getElementById("themeButton");
+            if (n === 1) {
+                dark.rel = "stylesheet";
+                light.rel = "stylesheet alternate";
+                bt.innerHTML = "Light Theme";
+                theme = 0;
+            } else {
+                light.rel = "stylesheet";
+                dark.rel = "stylesheet alternate";
+                bt.innerHTML = "Dark Theme";
+                theme = 1;
+            }
+            return false;
+        }
+
+        function scrollTop() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+</head>
+<body>
+<div class="navbar">
+    <ul>
+        <li><a href="#" onclick="scrollTop();" style="font-family: Consolas, monospace;">></a></li>
+        <li><a href="#topic1">Basic declarations and expressions</a></li>
+        <li><a href="#topic2">Conditional Statements</a></li>
+        <li><a href="#topic3">Switch Statements</a></li>
+        <li><a href="#topic4">Loops</a></li>
+        <li><a href="#topic5">Arrays</a></li>
+        <li><a href="#topic6">Pointers</a></li>
+        <li><a href="#topic7">Lists</a></li>
+        <li><a href="#topic8">Functions</a></li>
+        <li><a href="#topic9">Recursion</a></li>
+        <li><a href="#topic10">Trees</a></li>
+        <li><a href="#topic11">Files</a></li>
+        <li style="float: right"><a href="#" onclick="switchTheme(theme);" id="themeButton">Dark Theme</a></li>
+    </ul>
+</div>
+<table class="contain">
+    <tr>
+        <th class="titles"></th>
+        <td rowspan="20" style="width: auto; height: 100%">
+        </td>
+        <th class="info" id="topic1"><h1 class="header">Basics of C</h1></th>
+    </tr>
+    <span style="float: right;"></span>
+    <tr>
+        <td class="titles"><h3 class="header">Basic declarations and expressions</h3></td>
+        <td class="info">
+            <br>
+            <hr>
+            <h4 class="header2">Declarations</h4>
+            <p><a href="https://en.wikipedia.org/wiki/C_data_types#Main_types">These</a> are the main data types for C.
+            </p>
+            <p>To cut things short though, you've got <span class="wrap">char</span>, <span class="wrap">int</span>,
+                <a href="https://www.geeksforgeeks.org/difference-float-double-c-cpp/"><span class="wrap">float</span>
+                    and <span class="wrap">double</span></a>.
+                If you want you can read up on short/long or signed/unsigned.</p>
+            <p>Here are their <a
+                    href="https://codeforwin.org/2015/05/list-of-all-format-specifiers-in-c-programming.html">format
+                specifiers</a>.</p>
+            <table style="width: 25%">
+                <tr>
+                    <th class="tab">Variable type</th>
+                    <td class="tab">char</td>
+                    <td class="tab">int</td>
+                    <td class="tab">float</td>
+                    <td class="tab">double</td>
+                </tr>
+                <tr>
+                    <th class="tab">Format specifier</th>
+                    <td class="tab">%c</td>
+                    <td class="tab">%d</td>
+                    <td class="tab">%f</td>
+                    <td class="tab">%lf</td>
+                </tr>
+            </table>
+            <p>This will display a value like 35.2222 as 35.22</p>
+            <p>Here is the syntax</p>
+            <p>Declaration only <span class="wrap">variable_type name;</span></p>
+            <p>Giving a value <span class="wrap">name = value;</span></p>
+            <p>Declaration and value <span class="wrap">variable_type name = value;</span></p>
+            <p>Remember that the variable name will always be on the left, and the value given to it will be on the
+                right side.<br>
+                It's not quite like maths where both sides of the = are interchangeable.</p>
+
+            <h4 class="header2">I/O</h4>
+            <p><span class="wrap">printf</span> and <span class="wrap">scanf</span> are the input and output expressions
+                for C when dealing with console applications.</p>
+            <p>Here is the syntax</p>
+            <p>For <b>printf</b> - <span class="wrap">printf("text and/or format_specifier", variable_of_format_specifier);</span>
+            </p>
+            <p>For <b>scanf</b> - <span class="wrap">scanf("format_specifier", &variable_of_format_specifier);</span>
+            </p>
+            <p>Keep in mind you can round up a floating point decimal in C as such - <b>%.2f</b></p>
+            <p>When outputting text, you can use things such as <span class="wrap">/n</span>, <span
+                    class="wrap">/b</span>,
+                <span class="wrap">/r</span> and <span class="wrap">/t</span>.</p>
+            <p><span class="wrap">/n</span> - newline, similar to enter</p>
+            <p><span class="wrap">/b</span> - backspace, moves back one character without deleting anything</p>
+            <p><span class="wrap">/r</span> - carriage return, moves back to the start of the line and replaces
+                characters from there</p>
+            <p><span class="wrap">/t</span> - tab, spaces similarly to pressing tab</p>
+            <p>I suggest you try these yourself to see how they work in practice.</p>
+            <div id="topic2"></div>
+        </td>
+    </tr>
+
+    <tr>
+        <td class="titles"><h3 class="header">Conditional statements</h3></td>
+        <td class="info">
+            <br>
+            <hr>
+            <h4 class="header2">If/else</h4>
+            <p>A conditional statement runs code only if the condition is met - <b>if</b> or <b>if/else</b> statements.
+            </p>
+            <p>This technically means they only accept booleans - true or false.<br>If the condition is met, we get
+                true, and the code runs through if.
+                If the condition is not met, we get false, and the code runs through else, if we have one.</p>
+            <p>Here are the operators used in conditional statements</p>
+            <table style="width: 50%">
+                <tr>
+                    <th class="tab">Operator</th>
+                    <td class="tab">==</td>
+                    <td class="tab">!=</td>
+                    <td class="tab"><</td>
+                    <td class="tab">></td>
+                    <td class="tab"><=</td>
+                    <td class="tab">>=</td>
+                </tr>
+                <tr>
+                    <th class="tab">Meaning</th>
+                    <td class="tab">Equals</td>
+                    <td class="tab">Not equals</td>
+                    <td class="tab">Smaller than</td>
+                    <td class="tab">Bigger than</td>
+                    <td class="tab">Smaller or equals</td>
+                    <td class="tab">Bigger or equals</td>
+                </tr>
+            </table>
+            <p>And here is the syntax for a normal if/else.</p>
+            <p id="ifelse1"><span class="wrap">if(a)</span><br><br><span class="wrap">{ run code for a == true }</span>
+            </p>
+            <p><span class="wrap">else</span><br><br><span class="wrap">{ run code for a == false }</span></p>
+            <p>Remember that = is used to give value while == is used for comparisons.</p>
+            <h4 class="header2">Booleans</h4>
+            <p>Now, an <b>if/else</b> statement can contain a whole expression inside its brackets, like <span
+                    class="wrap">if(x==0)</span> for example.
+                It can however also contain one single variable, known as a boolean.</p>
+            <p>Both the expression and the boolean can only have set values,
+                namely <b>true</b> or <b>false</b>.</p>
+            <p>A boolean is a special type of variable, declared with <span class="wrap">_Bool</span> (case sensitive).
+            </p>
+            <p>If a value is given to it, it can only be <span class="wrap">_Bool a = <b>true</b>;</span>
+                or <span class="wrap">_Bool b = <b>false</b>;</span> in the same way that <span class="wrap">x==0</span>
+                can only be true or false.</p>
+            <p>Therefore if we look at the syntax for the <b>if/else</b> conditional statement, the <a
+                    href="#ifelse1"><b>a</b></a>
+                in the brackets can be either an expression or a single boolean.</p>
+            <p>Now let's take a look at this line of code.</p>
+            <p><span class="wrap">if(a)</span><br><br><span class="wrap" id="ifelse2">{int newval = 1;}</span><br><br>
+                <span class="wrap">else</span><br><br><span class="wrap" id="ifelse3">{newval = 0;}</span></p>
+            <p>This code is not correct. There's a declaration for a variable called <a
+                    href="#ifelse2"><b>newval</b></a>.</p>
+            <p>If you need to declare a variable inside an <b>if</b> statement, it's always good practice to also
+                declare it in the <b>else</b> statement.
+                Usually these values will be used after the <b>if/else</b>, and if the value is only declared in the if
+                but the code only runs through else,
+                that value is technically never declared.</p>
+            <p>Click to
+                <button onclick="correctIfElse(ch_ifElse)" id="ieButton">fix</button>
+                the code above.
+            </p>
+            <h4 class="header2">Conditional Operators</h4>
+            <p>Well, these are practically similar to if/else statements except they don't cover a range of uses as
+                broad.<br>
+                They're mainly used to return a single value based on a condition. Like this.</p>
+            <p><span class="wrap">(condition? value_if_true : value_if_false)</span></p>
+            <p>Because they return a single value they're good at assigning a value to a variable based on
+                conditions.<br>
+                Let's say I want my <a href="#ifelse4"><b>x</b></a> value to be 10 or 20 based on if <a href="#ifelse4"><b>y</b></a>
+                is even or odd.</p>
+            <p><span class="wrap" id="ifelse4">int x = (y%2==0? 10 : 20);</span></p>
+            <p>So if y/2 has a remainder of 0 (y%2==0) then x becomes 10, but if the remainder isn't 0 (the number is
+                odd and the remainder is 1) x becomes 20.</p>
+            <script>
+                var saveIEdata = document.getElementById("ifelse3").innerHTML;
+            </script>
+            <div id="topic3"></div>
+        </td>
+    </tr>
+
+    <tr>
+        <td class="titles"><h3 class="header">Switch statements</h3></td>
+        <td class="info">
+            <br>
+            <hr>
+            <p>A switch - also called a <b>switch/case</b> statement, works by taking a variable and doing different
+                things based on the value of that variable.<br>
+                Kind of like an <b>if/else</b>, but with several more specific options instead of a range.</p>
+            <p>Here's an example of how it works.</p>
+            <p><span class="wrap" id="swc1"><b>switch</b>(variable)</span><br><br>
+                <span class="wrap">{</span><br><br>
+                <span class="wrap" id="swc2"><b>case</b> value1:</span><br><br>
+                <span class="wrap" id="swc3">run code for variable == value1</span><br><br>
+                <span class="wrap"><b>break;</b></span><br><br>
+                <span class="wrap" id="swc4"><b>case</b> value2:</span><br><br>
+                <span class="wrap" id="swc5">run code for variable == value2</span><br><br>
+                <span class="wrap"><b>break;</b></span><br><br>
+                <span class="wrap"><b>default</b>:</span><br><br>
+                <span class="wrap" id="swc6">run code for when variable has a value we didn't predict</span><br><br>
+                <span class="wrap">}</span><br><br></p>
+            <p>You can use as many cases as necessary, and breaks as well as the default case is optional.</p>
+            <p><span class="wrap">break;</span> works in switch statements, loops etc. as a way to stop and move past
+                it.</p>
+            <p>If we have a break in the first case, the program doesn't check through every other case below it and
+                moves past the <a href="https://www.programiz.com/c-programming/c-switch-case-statement">switch</a>
+                entirely,
+                making it slightly faster.</p>
+            <p><span class="wrap">default</span> is a special type of case, containing every case we didn't predict.
+                Think of it as error handling in a way, or a safety net.</p>
+            <p>Say I want a variable to store a day of the week specified by the user. The options will be Monday,
+                Tuesday and so on.</p>
+            <p>Let's make the example above
+                <button onclick="correctSwitchCase(ch_swCase)" id="swButton">show it</button>
+                .<br>
+                (I didn't add cases for each day for convenience, but you can do it in your own programs if you wish to
+                try it out.
+            </p>
+            <p>Also, remember - cases with characters or words will have values with quotation marks 'such as this'.
+                Numbers can be written normally.</p>
+            <script>
+                var saveSWdata1 = document.getElementById("swc1").innerHTML;
+                var saveSWdata2 = document.getElementById("swc2").innerHTML;
+                var saveSWdata3 = document.getElementById("swc3").innerHTML;
+                var saveSWdata4 = document.getElementById("swc4").innerHTML;
+                var saveSWdata5 = document.getElementById("swc5").innerHTML;
+                var saveSWdata6 = document.getElementById("swc6").innerHTML;
+            </script>
+            <div id="topic4"></div>
+        </td>
+    </tr>
+
+    <tr>
+        <td class="titles"><h3 class="header">Loops</h3></td>
+        <td class="info">
+            <br>
+            <hr>
+            <p>A loop executes the sequence of statements inside it repeatedly until the stated condition becomes
+                false.</p>
+            <p>It usually consists of the body of the loop - where the code repeats - and a control statement which
+                usually controls the conditions.</p>
+            <p>We're gonna look at all three loops in C - <b>for</b>, <b>while</b> and <b>do while</b>.</p>
+            <h4 class="header2">For loop</h4>
+            <p>The <a href="https://www.w3resource.com/c-programming/c-for-loop.php"><b>for</b> loop</a> has a control statement divided in 3 different parts, and then a body where the code
+                runs.</p>
+            <p>The control statement has an initial value, a condition to be met for the body to run, and an
+                incrementation or decrementation of the value
+                from the initial.</p>
+            <p>Let's take a look at the syntax.</p>
+            <p><span class="wrap"
+                     id="loopfor1"><b>for</b>(initial_value; condition; incrementation_or_decrementation)</span><br><br>
+                <span class="wrap" id="loopfor2">{ statements to be repeated inside body }</span></p>
+            <p>It's a good idea to declare the initial value before the <b>for</b> loop, and give it a value in the
+                control statement.</p>
+            <p>Let's
+                <button onclick="correctFor(ch_for)" id="forButton">show</button>
+                a practical example instead of the syntax.
+            </p>
+            <p>The practical example shows a <b>for</b> loop that outputs numbers from 0 to 9.</p>
+            <p>This shows us it's a very useful thing to use the changing value of <span class="wrap">i</span> in a
+                variety of methods.</p>
+            <script>
+                var saveFordata1 = document.getElementById("loopfor1").innerHTML;
+                var saveFordata2 = document.getElementById("loopfor2").innerHTML;
+            </script>
+            <h4 class="header2">While loop</h4>
+            <p>A <b>while</b> loop is the simplest form of loop one can do. Less complex than <b>for</b> and slightly
+                less efficient as well.</p>
+            <p>Like the <b>for</b> loop, it's an entry-controlled loop, meaning the condition is checked before the code
+                on the body is ran.<br>
+                If the condition starts off false, the code is never executed.</p>
+            <p>Here is the syntax.</p>
+            <p id="while1"><span class="wrap" id="loopwhile1"><b>while</b>(condition)</span><br><br>
+                <span class="wrap" id="loopwhile2">{ statements to be repeated inside body }</span></p>
+            <p>Let's also
+                <button onclick="correctWhile(ch_while)" id="whileButton">show</button>
+                a practical example of a while condition.
+            </p>
+            <p>This example takes for granted that we've declared a previous <span class="wrap">int num=0;</span> before
+                the <b>while</b> loop,
+                and displays numbers from 0 to 9.</p>
+            <p>As you can see, there's an incrementation in the form of <span class="wrap">num++;</span> in <b>while</b>
+                as well.</p>
+            <p>However this one is done manually inside the body of the <b>while</b> instead of the control
+                statement.<br>
+                If it's not added, the <b>while</b> loop continues forever.</p>
+            <script>
+                var saveWHdata1 = document.getElementById("loopwhile1").innerHTML;
+                var saveWHdata2 = document.getElementById("loopwhile2").innerHTML;
+            </script>
+            <h4 class="header2">Do While loop</h4>
+            <p>This one is like the <b>while</b> loop, but it is not an entry-controlled loop.</p>
+            <p>An exit-controlled loop like this will let the code in the body run once, then check if the condition is
+                met.<br>
+                If it is, the code runs again in a loop until the condition is false.</p>
+            <p>Let's look at the syntax.</p>
+            <p><span class="wrap">do {</span><br><br>
+                <span class="wrap">statement runs once then condition is checked to run again</span><br><br>
+                <span class="wrap">} while (condition);</span></p>
+            <p>And here is
+                <button onclick="correctDoWhile(ch_doWhile);" id="doWhileButton">one</button>
+                example.
+            </p>
+            <p><span class="wrap" id="dw1">int a=1;</span><br><br>
+                <span class="wrap">do {</span><br><br>
+                <span class="wrap">printf("%d ", a);</span><br><br>
+                <span class="wrap">a++;</span><br><br>
+                <span class="wrap" id="loopdw1">} while(a<0);</span></p>
+            <p id="loopdw2">In this code, <a href="#dw1"><b>a</b></a> is never smaller than 0, yet the <span
+                    class="wrap">printf</span> is run
+                once anyway, before the condition is checked. The output is <span class="wrap">1</span>.</p>
+            <p>Other than this one difference - the fact that the code runs once before checking the condition, while
+                and do while are practically the same.</p>
+            <script>
+                var saveDWhdata1 = document.getElementById("loopdw1").innerHTML;
+                var saveDWhdata2 = document.getElementById("loopdw2").innerHTML;
+            </script>
+            <div id="topic5"></div>
+        </td>
+    </tr>
+
+    <tr>
+        <td class="titles"><h3 class="header">Arrays</h3></td>
+        <td class="info">
+            <br>
+            <hr>
+
+            <div id="topic6"></div>
+        </td>
+    </tr>
+
+    <tr>
+        <td class="titles"><h3 class="header">Pointers</h3></td>
+        <td class="info">
+            <br>
+            <hr>
+
+            <div id="topic7"></div>
+        </td>
+    </tr>
+
+    <tr>
+        <td class="titles"><h3 class="header">Lists</h3></td>
+        <td class="info">
+            <br>
+            <hr>
+
+            <div id="topic8"></div>
+        </td>
+    </tr>
+
+    <tr>
+        <td class="titles"><h3 class="header">Functions</h3></td>
+        <td class="info">
+            <br>
+            <hr>
+
+            <div id="topic9"></div>
+        </td>
+    </tr>
+
+    <tr>
+        <td class="titles"><h3 class="header">Recursion</h3></td>
+        <td class="info">
+            <br>
+            <hr>
+
+            <div id="topic10"></div>
+        </td>
+    </tr>
+
+    <tr>
+        <td class="titles"><h3 class="header">Trees</h3></td>
+        <td class="info">
+            <br>
+            <hr>
+
+            <div id="topic11"></div>
+        </td>
+    </tr>
+
+    <tr>
+        <td class="titles"><h3 class="header">Files</h3></td>
+        <td class="info">
+            <br>
+            <hr>
+
+        </td>
+    </tr>
+
+</table>
+</body>
+</html>
