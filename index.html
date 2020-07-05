@@ -126,7 +126,7 @@
         function correctDoWhile(choice) {
             if (choice === 0) {
                 document.getElementById("loopdw1").innerHTML = "} while(a<=10);";
-                document.getElementById("loopdw2").innerHTML = "In this code, <a href=\"#dw1\"><b>a</b></a>" +
+                document.getElementById("loopdw2").innerHTML = "In this code, <a href=\"#dw1\">a</a>" +
                     " is smaller than 10, and <span class=\"wrap\">printf</span> is run 10 times, " +
                     "before the condition is checked. The output is <span class=\"wrap\">1 2 3 4 5 6 7 8 9 10</span>.";
                 document.getElementById("doWhileButton").innerText = "another";
@@ -303,13 +303,13 @@
                 or <span class="wrap">_Bool b = <b>false</b>;</span> in the same way that <span class="wrap">x==0</span>
                 can only be true or false.</p>
             <p>Therefore if we look at the syntax for the <b>if/else</b> conditional statement, the <a
-                    href="#ifelse1"><b>a</b></a>
+                    href="#ifelse1">a</a>
                 in the brackets can be either an expression or a single boolean.</p>
             <p>Now let's take a look at this line of code.</p>
             <p><span class="wrap">if(a)</span><br><br><span class="wrap" id="ifelse2">{int newval = 1;}</span><br><br>
                 <span class="wrap">else</span><br><br><span class="wrap" id="ifelse3">{newval = 0;}</span></p>
             <p>This code is not correct. There's a declaration for a variable called <a
-                    href="#ifelse2"><b>newval</b></a>.</p>
+                    href="#ifelse2">newval</a>.</p>
             <p>If you need to declare a variable inside an <b>if</b> statement, it's always good practice to also
                 declare it in the <b>else</b> statement.
                 Usually these values will be used after the <b>if/else</b>, and if the value is only declared in the if
@@ -326,7 +326,7 @@
             <p><span class="wrap">(condition? value_if_true : value_if_false)</span></p>
             <p>Because they return a single value they're good at assigning a value to a variable based on
                 conditions.<br>
-                Let's say I want my <a href="#ifelse4"><b>x</b></a> value to be 10 or 20 based on if <a href="#ifelse4"><b>y</b></a>
+                Let's say I want my <a href="#ifelse4">x</a> value to be 10 or 20 based on if <a href="#ifelse4"><b>y</b></a>
                 is even or odd.</p>
             <p><span class="wrap" id="ifelse4">int x = (y%2==0? 10 : 20);</span></p>
             <p>So if y/2 has a remainder of 0 (y%2==0) then x becomes 10, but if the remainder isn't 0 (the number is
@@ -400,7 +400,7 @@
                 usually controls the conditions.</p>
             <p>We're gonna look at all three loops in C - <b>for</b>, <b>while</b> and <b>do while</b>.</p>
             <h4 class="header2">For loop</h4>
-            <p>The <a href="https://www.w3resource.com/c-programming/c-for-loop.php"><b>for</b> loop</a> has a control statement divided in 3 different parts, and then a body where the code
+            <p>The <a href="https://www.w3resource.com/c-programming/c-for-loop.php">for loop</a> has a control statement divided in 3 different parts, and then a body where the code
                 runs.</p>
             <p>The control statement has an initial value, a condition to be met for the body to run, and an
                 incrementation or decrementation of the value
@@ -465,7 +465,7 @@
                 <span class="wrap">printf("%d ", a);</span><br><br>
                 <span class="wrap">a++;</span><br><br>
                 <span class="wrap" id="loopdw1">} while(a<0);</span></p>
-            <p id="loopdw2">In this code, <a href="#dw1"><b>a</b></a> is never smaller than 0, yet the <span
+            <p id="loopdw2">In this code, <a href="#dw1">a</a> is never smaller than 0, yet the <span
                     class="wrap">printf</span> is run
                 once anyway, before the condition is checked. The output is <span class="wrap">1</span>.</p>
             <p>Other than this one difference - the fact that the code runs once before checking the condition, while
