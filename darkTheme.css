@@ -1,10 +1,10 @@
-/*noinspection CssRedundantUnit*/
+/*noinspection CssRedundantUnit,CssUnknownTarget*/
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 @media screen and (max-device-width: 481px){
     .wrap {
         border: none;
     }
 }
-
 body {
     background-color: #292D3E;
     color: #A6ACCD;
@@ -24,7 +24,7 @@ button {
 
 .header {
     font-weight: bold;
-    font-family: Georgia, serif;
+    font-family: "Roboto", serif;
 }
 
 .header2 {
@@ -136,4 +136,3 @@ li a:hover {
     background-color: #292D3E;
     border-bottom: 1px solid #515772;
 }
-

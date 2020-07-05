@@ -1,18 +1,19 @@
-/*noinspection CssRedundantUnit*/
-@media screen and (max-device-width: 481px){
+/*noinspection CssRedundantUnit,CssUnknownTarget*/
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@media screen and (max-width: 481px){
     .wrap {
         border: none;
     }
 }
-
 body {
-    background: #F0F0F0;
+    background: white;
+    color: #403f53;
     transition: background .5s;
     margin: 0px;
 }
 
 a {
-    color: darkviolet;
+    color: #3e66b8;
 }
 
 a:link {
@@ -72,6 +73,7 @@ table.contain {
     border: 1px solid lightgray;
     text-align: center;
     margin: 5px;
+    color: #23877f;
 }
 
 td.tab, th.tab {
@@ -100,14 +102,16 @@ td, th {
 }
 
 .header {
-    color: #0099ff;
     font-weight: bold;
-    font-family: Georgia, serif;
+    font-family: "Roboto", serif;
 }
 
 .header2 {
-    color: #0099ff;
     font-weight: normal;
+}
+
+.header, .header2 {
+    color: #21524e;
 }
 
 hr {
@@ -124,4 +128,3 @@ hr {
     border-bottom: 1px solid lightslategray;
     height: auto;
 }
-
