@@ -65,14 +65,14 @@ table.contain {
 }
 
 .wrap {
-    padding: 5px;
+    padding: 4px;
     display: inline;
     font-family: Consolas, monospace;
     border-collapse: collapse;
     border: 1px solid lightgray;
     text-align: center;
     margin: 5px;
-    color: #23877f;
+    color: #1b6963;
 }
 
 td.tab, th.tab {
@@ -110,7 +110,7 @@ td, th {
 }
 
 .header, .header2 {
-    color: #21524e;
+    color: #3b615d;
 }
 
 hr {
