@@ -1,5 +1,4 @@
 /*noinspection CssRedundantUnit,CssUnknownTarget*/
-@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 @media screen and (max-width: 481px){
     .wrap {
         border: none;
@@ -103,7 +102,7 @@ td, th {
 
 .header {
     font-weight: bold;
-    font-family: Roboto, serif;
+    font-family: 'Roboto', serif;
 }
 
 .header2 {
