@@ -1,9 +1,14 @@
 /*noinspection CssRedundantUnit,CssUnknownTarget*/
-@media screen and (max-width: 481px){
+@media screen and (max-width: 481px) {
     .wrap {
         border: none;
     }
 }
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background: #F0F0F0;
     color: #403f53;
@@ -38,6 +43,7 @@ ul {
     overflow: hidden;
     background-color: #333;
 }
+
 li {
     float: left;
 }
@@ -51,6 +57,7 @@ li a {
     width: fit-content;
 
 }
+
 li a:hover {
     /*background-color: #444267;*/
     background-color: #111;

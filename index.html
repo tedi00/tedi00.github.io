@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="lightTheme.css" id="theme1">
     <link rel="stylesheet alternate" type="text/css" href="darkTheme.css" id="theme2">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto">
+    <link rel="shortcut icon" href="http://www.iconj.com/ico/q/8/q8cmepe7sk.ico" type="image/x-icon"/>
     <script>
         function remove() {
             var rm = document.getElementsByClassName("removable");
@@ -141,8 +142,10 @@
         }
 
         var theme = 1;
+        var pos;
 
         function switchTheme(n) {
+            pos = document.documentElement.scrollTop || document.body.scrollTop;
             var light = document.getElementById("theme1");
             var dark = document.getElementById("theme2");
             var bt = document.getElementById("themeButton");
@@ -157,6 +160,10 @@
                 bt.innerHTML = "Dark Theme";
                 theme = 1;
             }
+        }
+
+        function scrollTop() {
+            window.scrollTo(0, 0);
         }
     </script>
 </head>

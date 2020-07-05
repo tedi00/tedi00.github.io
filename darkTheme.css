@@ -1,9 +1,14 @@
 /*noinspection CssRedundantUnit,CssUnknownTarget*/
-@media screen and (max-device-width: 481px){
+@media screen and (max-device-width: 481px) {
     .wrap {
         border: none;
     }
 }
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: #292D3E;
     color: #A6ACCD;
