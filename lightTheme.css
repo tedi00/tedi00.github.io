@@ -118,3 +118,9 @@ hr {
     border-bottom: 1px solid lightslategray;
     height: auto;
 }
+
+@media screen and (max-width: 481px){
+    .wrap {
+        border: none;
+    }
+}

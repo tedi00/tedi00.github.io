@@ -130,3 +130,9 @@ li a:hover {
     background-color: #292D3E;
     border-bottom: 1px solid #515772;
 }
+
+@media screen and (max-width: 481px){
+    .wrap {
+        border: none;
+    }
+}
