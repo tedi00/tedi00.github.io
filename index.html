@@ -140,6 +140,29 @@
                 ch_doWhile = 0;
             }
         }
+        var ch_arr = 0;
+        function correctArrDecl(choice) {
+            var v1 = document.getElementById("arr1");
+            var v2 = document.getElementById("arr2");
+            var v3 = document.getElementById("arr3");
+            if(choice===0)
+            {
+                v1.innerHTML = "int a[4];";
+                v2.innerHTML = "int a[] = {14, 5, 6, 10}";
+                v3.innerHTML = "int a[4] = {14, 5, 6, 10}";
+                document.getElementById("arrButton1").innerText = "hide";
+                ch_arr = 1;
+            }
+            if(choice===1)
+            {
+                v1.innerHTML = saveArrdata1;
+                v2.innerHTML = saveArrdata2;
+                v3.innerHTML = saveArrdata3;
+                document.getElementById("arrButton1").innerText = "show";
+                ch_arr = 0;
+            }
+
+        }
 
         var theme = 1;
         var pos;
@@ -485,6 +508,24 @@
         <td class="info">
             <br>
             <hr>
+            <p>Arrays are simply variables storing a collection of data all of the same type.<br>
+                Think of them as a big list of numbers or characters or whatever you decide.</p>
+            <p>They're easy to declare, easy to access, but cannot change size.</p>
+            <h4 class="header2">Declaration</h4>
+            <p>Let's take a look at a few ways to declare arrays based on the information we have.</p>
+            <p><span class="wrap" id="arr1">var_type array_name[size];</span> Declaring them with just size</p>
+            <p><span class="wrap" id="arr2">var_type array_name[] = {el1, el2};</span> Declaring with elements, size is
+                automatically calculated</p>
+            <p><span class="wrap" id="arr3">var_type array_name[size] = {el1, el2};</span> A combination of the above.</p>
+            <p>Let's also
+                <button id="arrButton1" onclick="correctArrDecl(ch_arr)">show</button>
+                some practical examples with int numbers. Remember you can do this with any data type.
+            </p>
+            <script>
+                var saveArrdata1 = document.getElementById("arr1").innerHTML;
+                var saveArrdata2 = document.getElementById("arr2").innerHTML;
+                var saveArrdata3 = document.getElementById("arr3").innerHTML;
+            </script>
 
             <div id="topic6"></div>
         </td>
