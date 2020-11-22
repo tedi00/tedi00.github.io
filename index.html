@@ -7,8 +7,10 @@
     <meta name="description" content="All basic C concepts I could think up">
     <meta name="author" content="ted">
     <title>Wal's C lessons</title>
-    <link rel="stylesheet" type="text/css" href="lightTheme.css" id="theme1">
-    <link rel="stylesheet alternate" type="text/css" href="darkTheme.css" id="theme2">
+
+<!--    <link rel="stylesheet" type="text/css" href="lightTheme.css" id="theme1">-->
+    <link rel="stylesheet" type="text/css" href="darkTheme.css" id="theme">
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto">
     <link rel="shortcut icon" href="favicon.ico?" type="image/x-icon"/>
     <script>
@@ -166,20 +168,22 @@
 
         var theme = 1;
         var pos;
-
         function switchTheme(n) {
-            pos = document.documentElement.scrollTop || document.body.scrollTop;
-            var light = document.getElementById("theme1");
-            var dark = document.getElementById("theme2");
+            // pos = document.documentElement.scrollTop || document.body.scrollTop;
+            var body = document.getElementById("body")
+            // var light = document.getElementById("theme1");
+            // var dark = document.getElementById("theme2");
             var bt = document.getElementById("themeButton");
             if (n === 1) {
-                dark.rel = "stylesheet";
-                light.rel = "stylesheet alternate";
+                // dark.rel = "stylesheet";
+                // light.rel = "stylesheet alternate";
+                body.className = "light";
                 bt.innerHTML = "Light Theme";
                 theme = 0;
             } else {
-                light.rel = "stylesheet";
-                dark.rel = "stylesheet alternate";
+                // light.rel = "stylesheet";
+                // dark.rel = "stylesheet alternate";
+                body.className = "dark"
                 bt.innerHTML = "Dark Theme";
                 theme = 1;
             }
@@ -190,7 +194,8 @@
         }
     </script>
 </head>
-<body>
+<body class="dark" id="body">
+<div class="full">
 <div class="navbar">
     <ul>
         <li><a href="#" onclick="scrollTop();" style="font-family: Consolas, monospace;">></a></li>
@@ -591,5 +596,6 @@
     </tr>
 
 </table>
+</div>
 </body>
 </html>
