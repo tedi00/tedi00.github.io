@@ -13,6 +13,7 @@
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto">
     <link rel="shortcut icon" href="favicon.ico?" type="image/x-icon"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css">
     <script>
         function remove() {
             var rm = document.getElementsByClassName("removable");
@@ -189,19 +190,24 @@
             }
         }
 
+        function scrollTo(topic) {
+            $('html, body').animate({
+                scrollTop: $(topic).offset().top - $(".navbar").height() // minus the nav height
+            }, 1000);
+        }
+
         function scrollTop() {
             window.scrollTo(0, 0);
         }
     </script>
 </head>
 <body class="dark" id="body">
-<div class="full">
 <div class="navbar">
     <ul>
         <li><a href="#" onclick="scrollTop();" style="font-family: Consolas, monospace;">></a></li>
-        <li><a href="#topic1">Basic declarations and expressions</a></li>
+        <li><a href="#" onclick="scrollTo('#topic1')">Basic declarations and expressions</a></li>
         <li><a href="#topic2">Conditional Statements</a></li>
-        <li><a href="#topic3">Switch Statements</a></li>
+        <li><a href="#" onclick="scrollTo('#topic3')">Switch Statements</a></li>
         <li><a href="#topic4">Loops</a></li>
         <li><a href="#topic5">Arrays</a></li>
         <li><a href="#topic6">Pointers</a></li>
@@ -211,6 +217,8 @@
         <li><a href="#topic10">Trees</a></li>
         <li><a href="#topic11">Files</a></li>
         <li style="float: right"><a href="#" onclick="switchTheme(theme);" id="themeButton">Dark Theme</a></li>
+        <li style="float: right"></li>
+
     </ul>
 </div>
 <table class="contain">
@@ -596,6 +604,5 @@
     </tr>
 
 </table>
-</div>
 </body>
 </html>
