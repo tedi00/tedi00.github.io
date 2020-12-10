@@ -3,8 +3,37 @@
     .wrap {
         border: none;
     }
+<<<<<<< Updated upstream:darkTheme.css
     body {
         padding-top: 0px;
+=======
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        width: 25%;
+        background-color: #f1f1f1;
+        position: fixed;
+        height: 100%;
+        overflow: auto;
+    }
+
+    li a {
+        display: block;
+        color: #000;
+        padding: 8px 16px;
+        text-decoration: none;
+    }
+
+    li a.active {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    li a:hover:not(.active) {
+        background-color: #555;
+        color: white;
+>>>>>>> Stashed changes:style.css
     }
 }
 
@@ -149,9 +178,9 @@ li a {
     color: var(--LiAColour);
     display: block;
     text-align: center;
-    padding: 14px 16px;
+    padding: 0.8em 1em;
     text-decoration: none;
-    width: fit-content;
+    /*width: fit-content;*/
 }
 li a:hover{
     background-color: var(--LiAHoverBgColour);
@@ -190,6 +219,7 @@ a:active {
 hr {
     border: var(--HrBorder);
     vertical-align: center;
+    margin: 2em 0em;
 }
 
 table.contain {
@@ -210,6 +240,41 @@ td.tab, th.tab {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     text-align: center;
+}
+
+.flexcontainer {
+    margin-top: 3em;
+}
+
+.flexrow {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    text-align: left;
+    padding: 3px;
+    font-family: arial, sans-serif;
+}
+
+.flexleft {
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    border: 1px solid red;
+    text-align: right;
+}
+
+.flexright {
+    -webkit-flex: 3;
+    -ms-flex: 3;
+    flex: 3;
+    border: 1px dashed black;
+    vertical-align: center;
+}
+
+.flexcol {
+    /*padding: 1em;*/
+    margin-left: 1em;
+    /*border: 1px solid;*/
 }
 
 ::-webkit-scrollbar {

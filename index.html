@@ -8,9 +8,7 @@
     <meta name="author" content="ted">
     <title>Wal's C lessons</title>
 
-<!--    <link rel="stylesheet" type="text/css" href="lightTheme.css" id="theme1">-->
-    <link rel="stylesheet" type="text/css" href="darkTheme.css" id="theme">
-
+    <link rel="stylesheet" type="text/css" href="style.css" id="theme">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto">
     <link rel="shortcut icon" href="favicon.ico?" type="image/x-icon"/>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.2/css/all.css">
@@ -143,21 +141,21 @@
                 ch_doWhile = 0;
             }
         }
+
         var ch_arr = 0;
+
         function correctArrDecl(choice) {
             var v1 = document.getElementById("arr1");
             var v2 = document.getElementById("arr2");
             var v3 = document.getElementById("arr3");
-            if(choice===0)
-            {
+            if (choice === 0) {
                 v1.innerHTML = "int a[4];";
                 v2.innerHTML = "int a[] = {14, 5, 6, 10}";
                 v3.innerHTML = "int a[4] = {14, 5, 6, 10}";
                 document.getElementById("arrButton1").innerText = "hide";
                 ch_arr = 1;
             }
-            if(choice===1)
-            {
+            if (choice === 1) {
                 v1.innerHTML = saveArrdata1;
                 v2.innerHTML = saveArrdata2;
                 v3.innerHTML = saveArrdata3;
@@ -168,7 +166,7 @@
         }
 
         var theme = 1;
-        var pos;
+
         function switchTheme(n) {
             // pos = document.documentElement.scrollTop || document.body.scrollTop;
             var body = document.getElementById("body")
@@ -179,29 +177,33 @@
                 // dark.rel = "stylesheet";
                 // light.rel = "stylesheet alternate";
                 body.className = "light";
-                bt.innerHTML = "Light Theme";
+                bt.innerHTML = "Dark Theme";
                 theme = 0;
             } else {
                 // light.rel = "stylesheet";
                 // dark.rel = "stylesheet alternate";
                 body.className = "dark"
-                bt.innerHTML = "Dark Theme";
+                bt.innerHTML = "Light Theme";
                 theme = 1;
             }
         }
 
+<<<<<<< Updated upstream
         function scrollTo(topic) {
             $('html, body').animate({
                 scrollTop: $(topic).offset().top - $(".navbar").height() // minus the nav height
             }, 1000);
         }
 
+=======
+>>>>>>> Stashed changes
         function scrollTop() {
             window.scrollTo(0, 0);
         }
     </script>
 </head>
 <body class="dark" id="body">
+<<<<<<< Updated upstream
 <div class="navbar">
     <ul>
         <li><a href="#" onclick="scrollTop();" style="font-family: Consolas, monospace;">></a></li>
@@ -220,8 +222,113 @@
         <li style="float: right"></li>
 
     </ul>
+=======
+<div class="full">
+    <div class="navbar">
+        <ul>
+            <li><a href="#" onclick="scrollTop();" style="font-family: Consolas, monospace;">></a></li>
+            <li><a href="#topic1">Basic declarations and expressions</a></li>
+            <li><a href="#topic2">Conditional Statements</a></li>
+            <li><a href="#topic3">Switch Statements</a></li>
+            <li><a href="#topic4">Loops</a></li>
+            <li><a href="#topic5">Arrays</a></li>
+            <li><a href="#topic6">Pointers</a></li>
+            <li><a href="#topic7">Lists</a></li>
+            <li><a href="#topic8">Functions</a></li>
+            <li><a href="#topic9">Recursion</a></li>
+            <li><a href="#topic10">Trees</a></li>
+            <li><a href="#topic11">Files</a></li>
+            <li style="float: right"><a href="#" onclick="switchTheme(theme);" id="themeButton">Light Theme</a></li>
+        </ul>
+    </div>
+    <div class="flexcontainer">
+        <div class="flexrow"><!-- header start -->
+            <div class="flexcol flexleft">
+            </div>
+            <div class="flexcol flexright">
+                <h1 class="header">Basics of C</h1>
+            </div><!-- header end -->
+        </div>
+        <div class="flexrow"><!-- title start -->
+            <div class="flexcol flexleft">
+                <h3 class="header">Basic declarations and expressions</h3>
+            </div>
+            <div class="flexcol flexright">
+                <hr>
+            </div>
+        </div><!-- title end -->
+        <div class="flexrow"><!-- text start -->
+            <div class="flexcol flexleft">
+            </div>
+            <div class="flexcol flexright">
+                <h4 class="header2">Declarations</h4>
+                <p><a href="https://en.wikipedia.org/wiki/C_data_types#Main_types">These</a> are the main data types for
+                    C.
+                </p>
+                <p>To cut things short though, you've got <span class="wrap">char</span>, <span class="wrap">int</span>,
+                    <a href="https://www.geeksforgeeks.org/difference-float-double-c-cpp/"><span
+                            class="wrap">float</span>
+                        and <span class="wrap">double</span></a>.
+                    If you want you can read up on short/long or signed/unsigned.</p>
+                <p>Here are their <a
+                        href="https://codeforwin.org/2015/05/list-of-all-format-specifiers-in-c-programming.html">format
+                    specifiers</a>.</p>
+                <table style="width: 25%">
+                    <tr>
+                        <th class="tab">Variable type</th>
+                        <td class="tab">char</td>
+                        <td class="tab">int</td>
+                        <td class="tab">float</td>
+                        <td class="tab">double</td>
+                    </tr>
+                    <tr>
+                        <th class="tab">Format specifier</th>
+                        <td class="tab">%c</td>
+                        <td class="tab">%d</td>
+                        <td class="tab">%f</td>
+                        <td class="tab">%lf</td>
+                    </tr>
+                </table>
+                <p>Keep in mind you can output a certain number of decimals like such <span class="wrap">%.2f</span>.
+                </p>
+                <p>This will display a value like 35.1234 as 35.12</p>
+                <p>And now here is the syntax for declaring variables and giving them values.</p>
+                <p>Declaration only <span class="wrap">variable_type name;</span></p>
+                <p>Giving a value <span class="wrap">name = value;</span></p>
+                <p>Declaration and value <span class="wrap">variable_type name = value;</span></p>
+                <p>Remember that the variable name will always be on the left, and the value given to it will be on the
+                    right side.<br>
+                    It's not quite like maths where both sides of the = are interchangeable.</p>
+
+                <h4 class="header2">I/O</h4>
+                <p><span class="wrap">printf</span> and <span class="wrap">scanf</span> are the input and output
+                    expressions
+                    for C when dealing with console applications.</p>
+                <p>Here is the syntax</p>
+                <p>For <b>printf</b> - <span class="wrap">printf("text and/or format_specifier", variable_of_format_specifier);</span>
+                </p>
+                <p>For <b>scanf</b> - <span
+                        class="wrap">scanf("format_specifier", &variable_of_format_specifier);</span>
+                </p>
+                <p>Keep in mind you can round up a floating point decimal in C as such - <b>%.2f</b></p>
+                <p>When outputting text, you can use things such as <span class="wrap">/n</span>, <span
+                        class="wrap">/b</span>,
+                    <span class="wrap">/r</span> and <span class="wrap">/t</span>.</p>
+                <p><span class="wrap">/n</span> - newline, similar to enter</p>
+                <p><span class="wrap">/b</span> - backspace, moves back one character without deleting anything</p>
+                <p><span class="wrap">/r</span> - carriage return, moves back to the start of the line and replaces
+                    characters from there</p>
+                <p><span class="wrap">/t</span> - tab, spaces similarly to pressing tab</p>
+                <p>I suggest you try these yourself to see how they work in practice.</p>
+                <!--            <div id="topic2"></div>-->
+            </div>
+        </div>
+        <!--    end    -->
+    </div>
+>>>>>>> Stashed changes
 </div>
 <table class="contain">
+
     <tr>
         <th class="titles"></th>
         <td rowspan="20" style="width: auto; height: 100%">
@@ -529,7 +636,8 @@
             <p><span class="wrap" id="arr1">var_type array_name[size];</span> Declaring them with just size</p>
             <p><span class="wrap" id="arr2">var_type array_name[] = {el1, el2};</span> Declaring with elements, size is
                 automatically calculated</p>
-            <p><span class="wrap" id="arr3">var_type array_name[size] = {el1, el2};</span> A combination of the above.</p>
+            <p><span class="wrap" id="arr3">var_type array_name[size] = {el1, el2};</span> A combination of the above.
+            </p>
             <p>Let's also
                 <button id="arrButton1" onclick="correctArrDecl(ch_arr)">show</button>
                 some practical examples with int numbers. Remember you can do this with any data type.
